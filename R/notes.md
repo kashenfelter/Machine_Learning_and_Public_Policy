@@ -1,7 +1,7 @@
 Notes from PBPL 28820
 ================
 Cristian E. Nuno
-April 03, 2018
+April 04, 2018
 
 -   [Preface](#preface)
 -   [Introduction](#introduction)
@@ -116,7 +116,7 @@ legend(
 Stock Market Data
 -----------------
 
-When we wish to predict a non-numerical value - a **categorical** or **qualitative** output, this is known as a **classification** problem.
+When we wish to predict a non-numerical value - a **categorical** or **qualitative** output, this is known as a **classification** problem. Let's examine the `Smarket` data set.
 
 ``` r
 down.up.color.schema <-
@@ -164,10 +164,40 @@ There are situations in which we *only observe input variables, with no correspo
 
 -   Ex: market setting uses demographic data to understand which types of current customers are similar to one another by **grouping individuals according to their observed characteristics**. This is known as a *clustering* problem.
 
+Let's examine the `NCI60` data set.
+
 ### Principal Component Analysis
 
-The following visualization is an example of [principal component analysis](https://tgmstat.wordpress.com/2013/11/21/introduction-to-principal-component-analysis-pca/).
+The following visualization is an example of [principal component analysis](https://tgmstat.wordpress.com/2013/11/21/introduction-to-principal-component-analysis-pca/) and [how to conduct it](https://www.r-bloggers.com/computing-and-visualizing-pca-in-r/) using `R`.
 
 ``` r
-# Z1 v Z2
+# apply PCA - scale. = TRUE is highly 
+# advisable, but default is FALSE. 
+NCI60$pca.data <- 
+  prcomp(
+    x = NCI60$data
+    , center = TRUE           # zero center results
+    , scale. = TRUE           # Scale to have unit variance before analysis takes place
+  )
+
+# Visualize results
+plot( 
+  x = NCI60$pca.data$x[, "PC1"]
+  , y = NCI60$pca.data$x[, "PC2"]
+  , main = "6,830 expression measurements for each cell line\ndown to two numbers or dimensions using PCA"
+  , cex.main = 0.85
+  , col = "palegreen4"
+  , pch = 19
+  , xlab = expression( "Z"[1] )
+  , ylab = expression( "Z"[2] )
+  )
+```
+
+![](notes_files/figure-markdown_github/Gene%20Expression%20Scatter%20Plots-1.png)
+
+``` r
+# create color schema to visualize 
+# the four groups of cell lines
+# cell.line.color.schema <-
+  # tbd #
 ```

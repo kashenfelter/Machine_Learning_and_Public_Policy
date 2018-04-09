@@ -177,8 +177,6 @@ plot(
 
 # create color schema to visualize 
 # the four groups of cell lines
-# cell.line.color.schema <-
-  # tbd #
 
 ```
 

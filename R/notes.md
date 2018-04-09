@@ -1,7 +1,7 @@
 Notes from PBPL 28820
 ================
 Cristian E. Nuno
-April 04, 2018
+April 08, 2018
 
 -   [Preface](#preface)
 -   [Introduction](#introduction)
@@ -198,6 +198,4 @@ plot(
 ``` r
 # create color schema to visualize 
 # the four groups of cell lines
-# cell.line.color.schema <-
-  # tbd #
 ```
